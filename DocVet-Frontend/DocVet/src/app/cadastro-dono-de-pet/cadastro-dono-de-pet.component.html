@@ -1,0 +1,98 @@
+<div class="body">
+    <div class="container">
+        <div class="form-image">
+            <h1 class="bv">Bem Vindo ao DocVet</h1>
+            <img src="/assets/images/cachorroMedico.jpg" alt="cachorroMedico">
+        </div>
+
+        <div class="form">
+            <form>
+                <div class="form-header">
+                    <div class="circulo">
+                        <img src="/assets/images/docvet.png" alt="" width="100">
+                    </div>
+                    <div class="title">
+                        <h1>Possui Cadastro?</h1>
+                    </div>
+                    <div class="login-button">
+                        <a routerLink="/">
+                            <button class="me-6 btn btn-light">Login</button>
+                          </a>
+                    </div>
+                </div>
+            </form>
+
+            <form id="form" [formGroup]="formulario" (ngSubmit)="submitForm()">
+                <div class="title">
+                    <h1>Cadastre-se</h1>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-box">
+                        <input id="nome" type="text" formControlName="nome" placeholder="Digite seu nome completo"
+                            class="inputs required" (input)="nameValidate()">
+                        <span *ngIf="formulario?.get('nome')?.errors?.['required']" class="span-required"><b>Nome é
+                                obrigatório</b></span>
+                        <span *ngIf="formulario?.get('nome')?.errors?.['minlength']" class="span-required"><b>Nome deve
+                                conter no mínimo 3 caracteres</b></span>
+                    </div>
+
+                    <div class="input-box">
+                        <input id="cpf" type="text" formControlName="cpf" placeholder="Digite seu CPF"
+                            class="inputs required" />
+                        <span *ngIf="formulario.get('cpf')?.errors?.['required']" class="span-required"><b>CPF é
+                                obrigatório</b></span>
+                        <span *ngIf="formulario.get('cpf')?.errors?.['minlength']" class="span-required"><b>CPF deve
+                                conter 11 dígitos</b></span>
+                    </div>
+
+                    <div class="input-box">
+                        <input id="telefone" type="tel" formControlName="telefone" placeholder="Digite seu telefone"
+                            class="inputs required" />
+                        <span *ngIf="formulario.get('telefone')?.errors?.['required']" class="span-required"><b>Telefone
+                                é obrigatório</b></span>
+                        <span *ngIf="formulario.get('telefone')?.errors?.['minlength']"
+                            class="span-required"><b>Telefone deve conter 11 dígitos</b></span>
+                    </div>
+
+                    <div class="input-box">
+                        <input id="email" type="email" formControlName="email" placeholder="Digite seu Email"
+                            class="inputs required" />
+                        <span *ngIf="formulario.get('email')?.errors?.['required']" class="span-required"><b>Email é
+                                obrigatório</b></span>
+                        <span *ngIf="formulario.get('email')?.errors?.['email']" class="span-required"><b>Digite um
+                                email válido</b></span>
+                    </div>
+
+                    <div class="input-box">
+                        <input id="senha" type="password" formControlName="senha" placeholder="Digite sua senha"
+                            class="inputs required" />
+                        <span *ngIf="formulario.get('senha')?.errors?.['required']" class="span-required"><b>Senha é
+                                obrigatória</b></span>
+                        <span *ngIf="formulario.get('senha')?.errors?.['minlength']" class="span-required"><b>Senha deve
+                                ter pelo menos 8 caracteres</b></span>
+                    </div>
+
+                    <div class="input-box">
+                        <input id="confsenha" type="password" formControlName="confsenha"
+                            placeholder="Digite sua senha novamente" class="inputs required" />
+                        <span *ngIf="formulario.get('confsenha')?.errors?.['required']"
+                            class="span-required"><b>Confirmação de senha é obrigatória</b></span>
+                        <span *ngIf="formulario.get('confsenha')?.errors?.['mustMatch']" class="span-required"><b>As
+                                senhas não coincidem</b></span>
+                    </div>
+                </div>
+                <!-- Mensagens do PrimeNG -->
+                <div class="messages">
+                    <p-messages  />
+                </div>
+
+                <div class="cadastre-button">
+                    <button type="submit">Cadastrar-se</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,14 @@
+.fixed-height {
+  height: 150px !important;
+}
+
+.convenioCirculo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}

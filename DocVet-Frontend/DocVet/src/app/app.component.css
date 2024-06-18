@@ -1,0 +1,33 @@
+/* .base{
+  height: 150px;
+  background-color: #186053;
+  width: 100%;
+} */
+* {
+  margin: 0;
+  padding: 0;
+}
+.circulo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+
+.verdeEscuro{
+  background: #186053;
+}
+
+.navegacao{
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+
+
+

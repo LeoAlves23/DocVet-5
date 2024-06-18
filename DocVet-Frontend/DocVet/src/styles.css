@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.circulo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
+
+.verde{
+    background-color: #07d9b2;
+}
+
+.verde-escuro{
+    background-color: #186053;
+}
+
+.checkbox-lg{
+    scale: 1.5;
+}
+
+.botoes{
+    height: 80;
+    width: 80px;
+    border-radius: 10px;
+    background-color: #3ABA9B;
+}
+
+
+body {
+  /* display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; */
+}
+

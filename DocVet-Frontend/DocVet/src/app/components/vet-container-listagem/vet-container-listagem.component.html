@@ -1,0 +1,30 @@
+<div style="width: 250px;" class="card align-items-center">
+  <div class="pt-3 card-header justify-content-around text-center">
+      <h5>{{ nome }}</h5>
+      <img style="object-fit: cover;"  [src]="foto ? foto : 'assets/images/FotoPerfilVazia.png'" width="200px" class="fixed-height img-fluid img-thumbnail mt-3 imagemDoutores imagem">
+
+      <div class="card-body">
+          <h5 *ngFor="let especialidade of especialidades">{{ especialidade.especialidade }}</h5>
+          <br>
+          <!-- <h4>Convenios</h4> -->
+
+          <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; height: 20px; margin-bottom: 20px;">
+              <img [hidden]="convenios.length > 0 ? false : true" *ngFor="let convenio of convenios" [src]="convenio.foto" width="30px" class="convenioCirculo">
+              <span style="font-weight: 100; font-size: 20px;" [hidden]="convenios.length === 0 ? false : true">Particular</span>
+           </div>
+
+           <br>
+
+           <div *ngFor="let telefone of telefones">
+             <span style="font-size: 16px;">{{telefone}}</span>
+
+            </div>
+
+             <br>
+
+            <h5>{{ valor | currency:'BRL':'symbol':'1.2-2' }}</h5>
+          <!-- <br> -->
+          <!-- <button style="width: 150px; background-color: #186053; color: white;" class="btn" (click)="onClick()">Ver mais</button> -->
+      </div>
+  </div>
+</div>

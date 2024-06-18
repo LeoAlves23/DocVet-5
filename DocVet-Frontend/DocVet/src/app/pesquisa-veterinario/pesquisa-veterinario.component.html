@@ -1,0 +1,170 @@
+    <div style="overflow-x: hidden;">
+      <div class="navbar navbar-dark verdeFigurante">
+          <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
+                  <!-- <span class="navbar-toggler-icon dark-toggler"></span> -->
+                  <span style="color: black;" class="material-symbols-outlined">Filtros</span>
+              </button>
+
+              <div>
+                  <input id="nome" type="text form" class="form-control-sm" placeholder="Pesquisa por nome..." [(ngModel)]="nomePesquisado" (keyup.enter)="onPesquisaClick()">
+                  <button type="button" class="btn btn-light btn-sm mb-1 ms-2" (click)="onPesquisaClick()">
+                      <span class="bi bi-search">Pesquisar</span>
+                  </button>
+              </div>
+
+              <!--INÍCIO DO OFFCANVAS-->
+              <section class="offcanvas offcanvas-start verdeEscuro" id="menuLateral" tabindex="-1"><!--start(Iniciará na esquerda)--><!--É importante o id ser o mesmo que aquele informado no data-bs-target para que ambos sejam linkados-->
+                  <div class="offcanvas-header">
+                      <h4 class="offcanvas-title text-light">FILTROS</h4>
+                      <button class="btn btn-light btn-sm" type="button" data-bs-dismiss="offcanvas"> x </button>
+                  </div>
+
+                  <div class="accordion accordion-flush">
+                      <div class="accordion-item">
+                          <h2 class="accordion-header accordion-button collapsed" type="button" data-bs-target="#especialidade" data-bs-toggle="collapse">Especialidade</h2>
+                          <div id="especialidade" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <div *ngFor="let especialidade of especialidades">
+                                    <input [id]="'especialidadeCheck' + especialidade.id" name="especialidade" type="checkbox" class="form-check-input me-1" [value]="especialidade.especialidade">
+                                    <label [for]="'especialidadeCheck' + especialidade.id">{{ especialidade.especialidade }}</label>
+                                    <br>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+
+                      <div class="accordion-item">
+                        <h2 class="accordion-header accordion-button collapsed" type="button" data-bs-target="#tipoAnimal" data-bs-toggle="collapse">Tipo de Animal</h2>
+                        <div id="tipoAnimal" class="accordion-collapse collapse">
+                          <div class="accordion-body">
+                            <div *ngFor="let tipoAnimal of tiposAnimal">
+                              <input [id]="'tipoAnimalCheck' + tipoAnimal.id" name="tipoAnimal" type="checkbox" class="form-check-input me-1" [value]="tipoAnimal.nome">
+                              <label [for]="'tipoAnimalCheck' + tipoAnimal.id">{{ tipoAnimal.nome }}</label>
+                              <br>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                          <!-- <div class="accordion-item">
+                              <h2 class="accordion-header accordion-button collapsed" type="button" data-bs-target="#porte" data-bs-toggle="collapse">Porte</h2>
+
+                              <div id="porte" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    <div *ngFor="let porte of portes">
+                                      <input [id]="'porteCheck' + porte.valor" name="porte" type="checkbox" class="form-check-input me-1" [value]="porte.descricao">
+                                      <label [for]="'porteCheck' + porte.valor">{{ porte.descricao }}</label>
+                                      <br>
+                                    </div>
+                                  </div>
+                              </div>
+                          </div> -->
+
+                          <div class="accordion-item">
+                            <h2 class="accordion-header accordion-button collapsed" type="button" data-bs-target="#convenio" data-bs-toggle="collapse">Convênio</h2>
+                            <div id="convenio" class="accordion-collapse collapse">
+                              <div class="accordion-body">
+                                  <div *ngFor="let convenio of convenios">
+                                      <input [id]="'convenioCheck' + convenio.id" name="convenio" type="checkbox" class="form-check-input me-1" [value]="convenio.nome">
+                                      <label [for]="'convenioCheck' + convenio.id">{{ convenio.nome }}</label>
+                                      <br>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+
+
+                          <!-- <div class="accordion-item">
+                              <h2 class="accordion-header accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#localizacao">Localização</h2>
+
+                              <div id="localizacao" class="accordion-collapse collapse">
+                                      <div class="accordion-body">
+                                          <div class="d-flex row">
+                                              <div class="col-3">
+                                                  <select id="estado" class="form-select">
+                                                      <option hidden></option>
+                                                      <option value="AC">AC</option>
+                                                      <option value="AP">AP</option>
+                                                      <option value="AM">AM</option>
+                                                      <option value="PA">PA</option>
+                                                      <option value="RO">RO</option>
+                                                      <option value="RR">RR</option>
+                                                      <option value="TO">TO</option>
+                                                      <option value="AL">AL</option>
+                                                      <option value="BA">BA</option>
+                                                      <option value="CE">CE</option>
+                                                      <option value="MA">MA</option>
+                                                      <option value="PB">PB</option>
+                                                      <option value="PE">PE</option>
+                                                      <option value="PI">PI</option>
+                                                      <option value="RN">RN</option>
+                                                      <option value="SE">SE</option>
+                                                      <option value="ES">ES</option>
+                                                      <option value="MG">MG</option>
+                                                      <option value="RJ">RJ</option>
+                                                      <option value="SP">SP</option>
+                                                      <option value="PR">PR</option>
+                                                      <option value="RS">RS</option>
+                                                      <option value="SC">SC</option>
+                                                      <option value="DF">DF</option>
+                                                      <option value="GO">GO</option>
+                                                      <option value="MT">MT</option>
+                                                      <option value="MS">MS</option>
+                                                  </select>
+                                              </div>
+                                              <div class="col-9">
+                                                  <input id="cidade" class="col-8 form-control" type="text" class="form-control" placeholder="Informe a cidade">
+                                              </div>
+                                          </div>
+                                      </div>
+                              </div>
+                          </div> -->
+
+
+                          <div class="accordion-item">
+                              <h2 class="accordion-header accordion-button collapsed" type="button" data-bs-target="#preco" data-bs-toggle="collapse">Faixa de Preço</h2>
+                              <div id="preco" class="accordion-collapse collapse">
+                                  <div class="accordion-body">
+                                      <h5>Valor da consulta até: </h5>
+                                      <input id="cidade" type="number" class="form-control" [(ngModel)]="valorPesquisado" placeholder="Informe a cidade">
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div><!--FIM DO ACCORDION-->
+                      <button class="btn rounded-0 botaoFiltro" (click)="adicionarFiltros()">FILTRAR</button>
+              </section><!--FIM DO OFFCANVAS-->
+            </div>
+
+  </div>
+<br>
+  <!-- LISTAGEM DE VETERINÁRIOS -->
+  <!-- <div class="row" style="overflow-x: hidden;">
+    <div class="col-9" style="max-height: 95vh; overflow-y: auto;"> -->
+        <div style="display: flex; justify-content: center; flex-direction: row; flex-wrap: wrap; row-gap: 20px; column-gap: 20px;">
+            <app-vet-container-listagem
+                *ngFor="let veterinario of veterinariosFiltrados"
+                [especialidades]="veterinario.especialidades"
+                [nome]="veterinario.nome"
+                [valor]="veterinario.valor"
+                [foto]="veterinario.foto"
+                [convenios]="veterinario.convenios"
+                [telefones]="veterinario.telefones"
+            ></app-vet-container-listagem>
+        </div>
+    <!-- </div> -->
+    <!-- <div class="col-3 verdeEscuro" style="height: 95vh;">
+        <div *ngIf="veterinarioSelecionado">
+            <h2>{{ veterinarioSelecionado?.nome }}</h2>
+            <img style="object-fit: cover;" [src]="veterinarioSelecionado?.foto ? veterinarioSelecionado.foto : 'assets/images/FotoPerfilVazia.png'" width="200px" class="fixed-height img-fluid img-thumbnail mt-3 imagemDoutores imagem">
+            <h5>{{ veterinarioSelecionado.valor | currency:'BRL':'symbol':'1.2-2' }}</h5>
+        </div>
+        <div *ngIf="!veterinarioSelecionado">
+            <p style="display: flex; text-align: center; align-items: center; justify-content: center; margin-top: 25px; color: white;">Nenhum veterinário selecionado.</p>
+        </div>
+    </div> -->
+    <!-- </div> -->
+    <br>
+</div>

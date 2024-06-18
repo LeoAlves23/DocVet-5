@@ -1,0 +1,92 @@
+<!-- HEADER -->
+<header>
+    <div>
+      <div class="row text-center d-flex align-items-center">
+        <div class="col text-center">
+          <a routerLink="/inicio">
+            <button class="btn btn-light">Página Inicial</button>
+          </a>
+        </div>
+        <div class="col">
+          <img src="/assets/images/docvet.png" height="40px" class="circulo" />
+        </div>
+        <div class="col">
+          <!-- Adicione botões adicionais ou links conforme necessário -->
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- NAVBAR -->
+  <div class="navbar navbar-dark verdeFigurante">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
+        <span style="color: black;" class="material-symbols-outlined">menu</span>
+      </button>
+      <!-- OFFCANVAS -->
+      <section class="offcanvas offcanvas-start verdeEscuro" id="menuLateral" tabindex="-1">
+        <div class="offcanvas-header">
+          <h4 id="nomePerfil" class="offcanvas-title text-light" value=""></h4>
+          <button class="btn btn-light btn-lg bi-x-circle" type="button" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="perfildonoMenu">
+          <img id="fotoPerfil" class="circuloPerfil" src="" alt="perfil">
+          <a routerLink="/perfil"><button class="btn btn-lg btn-light mt-3">Meu Perfil</button></a>
+        </div>
+      </section>
+      <!-- FIM DO OFFCANVAS -->
+    </div>
+  </div>
+  
+  <!-- PERFIL DO DONO DE PET -->
+  <div class="DonoPetPerfil" id="informacoesDonoPet">
+    <div class="container">
+      <form id="formDonoPet">
+        <h1 class="d-flex justify-content-center pb-4 p-4">Perfil de Usuário</h1>
+  
+<!-- Dados do Usuário -->
+<div class="container">
+    <div class="row mb-4">
+      <div class="col">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input class="form-control" id="nome" type="text" name="nome" [(ngModel)]="usuario.nome" readonly />
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="cpf">CPF</label>
+          <input class="form-control" id="cpf" type="text" name="cpf" [(ngModel)]="usuario.cpf" readonly />
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="telefones">Telefones</label>
+          <ul>
+            <li *ngFor="let telefone of usuario.telefones">{{ telefone }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input class="form-control" id="email" type="email" name="email" [(ngModel)]="usuario.email" readonly />
+        </div>
+      </div>
+    </div>
+  </div>
+  
+        <!-- Link de Foto -->
+        <div class="row mb-2">
+          <div class="col">
+            <div class="form-group">
+              <label for="fotodonopet">Link de foto</label>
+              <input class="form-control" id="fotodonopet" type="text" name="foto" [(ngModel)]="usuario.foto" oninput="carregarImagemPerfil()" />
+            </div>
+          </div>
+        </div>
+  
+      </form>
+    </div>
+  </div>
+  
